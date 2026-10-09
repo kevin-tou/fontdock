@@ -1,0 +1,52 @@
+{
+  "name": "fontdock",
+  "version": "0.1.0",
+  "description": "Curated type pairings with a Cursor /fontdock skill and a live floating toolbar. Audit a project, preview fonts instantly, copy an apply prompt for the agent, then uninstall cleanly.",
+  "keywords": [
+    "typography",
+    "fonts",
+    "font-pairing",
+    "cursor",
+    "tailwind",
+    "nextjs",
+    "astro",
+    "vite",
+    "design-system"
+  ],
+  "license": "MIT",
+  "author": "kevin-tou",
+  "type": "module",
+  "bin": {
+    "fontdock": "bin/cli.js"
+  },
+  "exports": {
+    ".": "./src/cli.mjs",
+    "./toolbar": "./packages/toolbar/fontdock-toolbar.js",
+    "./combos": "./packages/registry/combos.json"
+  },
+  "files": [
+    "bin",
+    "src",
+    "packages",
+    "rules",
+    "skills"
+  ],
+  "scripts": {
+    "fontdock": "node bin/cli.mjs",
+    "validate": "node scripts/validate.mjs",
+    "validate:cdn": "node scripts/validate.mjs --cdn",
+    "test": "node --test tests/*.test.mjs",
+    "preview": "node scripts/preview.mjs"
+  },
+  "engines": {
+    "node": ">=18.18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kevin-tou/fontdock.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kevin-tou/fontdock/issues"
+  },
+  "homepage": "https://github.com/kevin-tou/fontdock#readme"
+}

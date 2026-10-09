@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.DS_Store
+Thumbs.db
+*.log
+.idea/
+.vscode/
+coverage/
+.tmp/
+.turbo/
+.next/
+.vercel/
+.env
+.env.*
