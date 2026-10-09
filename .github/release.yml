@@ -1,0 +1,22 @@
+changelog:
+  exclude:
+    labels:
+      - skip-changelog
+  categories:
+    - title: Features
+      labels:
+        - feat
+        - enhancement
+    - title: Fixes
+      labels:
+        - fix
+        - bug
+    - title: Registry
+      labels:
+        - combo
+    - title: Documentation
+      labels:
+        - docs
+    - title: Other
+      labels:
+        - "*"

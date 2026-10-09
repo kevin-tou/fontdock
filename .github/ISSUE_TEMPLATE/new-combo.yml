@@ -1,0 +1,79 @@
+name: Propose a new combo
+description: Add an open-licensed type pairing to the fontdock registry
+title: "combo: "
+labels: ["combo"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Read [CONTRIBUTING.md](../../CONTRIBUTING.md) first. Combos that are not commercially licensed, require an API key, or pair two display faces will be closed.
+  - type: input
+    id: combo_name
+    attributes:
+      label: Combo name
+      description: Human-readable name (example — Brutalist Code)
+      placeholder: Warm Editorial & Luxe
+    validations:
+      required: true
+  - type: input
+    id: combo_id
+    attributes:
+      label: Combo id
+      description: kebab-case id that will be used in combos.json
+      placeholder: warm-editorial-luxe
+    validations:
+      required: true
+  - type: dropdown
+    id: mood
+    attributes:
+      label: Primary graphic mood
+      options:
+        - SaaS & Tech
+        - Creative Studio
+        - Warm Editorial
+        - Neo-Brutalist
+        - Artisanal & Humanist
+        - Contemporary Indie
+    validations:
+      required: true
+  - type: textarea
+    id: fonts_json
+    attributes:
+      label: Ready-to-merge JSON excerpt
+      description: Must include display / body families, roles, https CDN URLs, license pages, and keywords.
+      placeholder: |
+        {
+          "id": "example-mood",
+          "name": "Example Mood",
+          "mood": "saas",
+          "keywords": ["clean", "dashboard", "minimal"],
+          "rationale": "Why these two faces contrast.",
+          "display": {},
+          "body": {}
+        }
+      render: json
+    validations:
+      required: true
+  - type: input
+    id: display_license
+    attributes:
+      label: Display family license URL
+    validations:
+      required: true
+  - type: input
+    id: body_license
+    attributes:
+      label: Body family license URL
+    validations:
+      required: true
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Eligibility
+      options:
+        - label: Both families allow commercial use (Fontshare ITF, Google Fonts OFL, or Open Foundry with a verifiable license URL). Not personal-use-only (Fontesk, Pixel Surplus, etc.).
+          required: true
+        - label: Both faces load from a public HTTPS CDN with no API key and no account.
+          required: true
+        - label: The pair has typographic contrast (not two display faces, not two interchangeable UI grotesks).
+          required: true
