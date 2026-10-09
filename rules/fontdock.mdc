@@ -1,0 +1,22 @@
+---
+description: Audit and preview typography combinations on the current project. Apply when the user runs /fontdock or asks to pair fonts, pick typefaces, or set the visual identity (DA).
+alwaysApply: false
+---
+
+# fontdock: `/fontdock`
+
+When the user runs `/fontdock`, follow `.cursor/skills/fontdock/SKILL.md` (copied by `npx fontdock init`). Reply in the user's language.
+
+## 1. Audit
+
+Inspect `package.json`, `tailwind.config.*`, `@theme`, `globals.css`, and the homepage. Prefer `npx fontdock detect --json`.
+
+## 2. Recommend and ask
+
+Show stack, CSS, DA, and 2 combos. Then ask: apply permanently, or launch the live toolbar?
+
+## 3. Apply from a prompt, then uninstall
+
+`npx fontdock apply` prints a prompt (families, weights, CDN links). You write the idiomatic CSS / `next/font` yourself. Toolbar **Done** copies the same prompt.
+
+Then `npx fontdock uninstall` to remove the preview toolbar. Uninstall does not remove fonts you wrote.
