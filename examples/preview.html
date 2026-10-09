@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>fontdock — live specimen</title>
+    <style>
+      :root {
+        --bg: #f7f7f6;
+        --ink: #111;
+        --muted: #525252;
+        --faint: #737373;
+        --line: rgba(0, 0, 0, 0.08);
+        --card: #fff;
+        --font-display: ui-serif, Georgia, serif;
+        --font-body: ui-sans-serif, system-ui, sans-serif;
+        --font-ui: ui-sans-serif, system-ui, sans-serif;
+        --font-display-weight: 700;
+        --font-body-weight: 400;
+        --font-ui-weight: 500;
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      html, body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: var(--font-body);
+        font-weight: var(--font-body-weight);
+      }
+      a { color: inherit; text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      img { display: block; width: 100%; height: 100%; object-fit: cover; }
+      .wrap { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+      .banner {
+        background: #111; color: #fff;
+        font-family: var(--font-ui); font-weight: var(--font-ui-weight);
+        font-size: 13px; padding: 10px 20px; text-align: center;
+      }
+      .banner strong { font-weight: 650; }
+      header {
+        display: flex; justify-content: space-between; align-items: center;
+        gap: 20px; padding: 22px 0;
+        font-family: var(--font-ui); font-weight: var(--font-ui-weight);
+      }
+      .logo { display: flex; align-items: center; gap: 10px; font-weight: 650; font-size: 16px; letter-spacing: -0.04em; }
+      .mark {
+        width: 28px; height: 28px; border-radius: 8px; background: #111; color: #fff;
+        display: grid; place-items: center; font-size: 11px; font-weight: 700;
+      }
+      nav { display: flex; flex-wrap: wrap; gap: 18px; font-size: 14px; color: var(--muted); }
+      .header-actions { display: flex; align-items: center; gap: 10px; }
+      .hero { padding: 56px 0 40px; display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 48px; align-items: center; }
+      h1 {
+        font-family: var(--font-display); font-weight: var(--font-display-weight);
+        font-size: clamp(40px, 6.4vw, 68px); line-height: 0.96; letter-spacing: -0.045em; margin: 0 0 18px;
+      }
+      .lede { font-size: clamp(16px, 2vw, 19px); line-height: 1.55; color: var(--muted); margin: 0 0 24px; max-width: 38rem; }
+      .kicker {
+        font-family: var(--font-ui); font-weight: var(--font-ui-weight);
+        font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--faint); margin: 0 0 12px;
+      }
+      h2 {
+        font-family: var(--font-display); font-weight: var(--font-display-weight);
+        font-size: clamp(28px, 4vw, 40px); letter-spacing: -0.04em; margin: 0 0 12px; line-height: 1.1;
+      }
+      h3 { font-family: var(--font-display); font-weight: var(--font-display-weight); font-size: 20px; letter-spacing: -0.03em; margin: 0 0 8px; }
+      p { line-height: 1.7; color: #404040; margin: 0 0 14px; }
+      section { padding: 72px 0; }
+      section.band { background: #fff; border-block: 1px solid var(--line); }
+      .actions { display: flex; flex-wrap: wrap; gap: 10px; }
+      button, .btn {
+        font-family: var(--font-ui); font-weight: var(--font-ui-weight);
+        border: 0; cursor: pointer; border-radius: 999px; padding: 12px 18px; font-size: 14px;
+      }
+      .btn-solid { background: #111; color: #fff; }
+      .btn-ghost { background: #fff; color: #111; border: 1px solid var(--line); }
+      .shot {
+        margin: 0; overflow: hidden; border-radius: 24px; background: #e7e5e4;
+        border: 1px solid var(--line); aspect-ratio: 16 / 10;
+      }
+      .shot.tall { aspect-ratio: 4 / 5; }
+      .shot.wide { aspect-ratio: 16 / 8; }
+      .ph {
+        width: 100%; height: 100%;
+        background:
+          linear-gradient(180deg, rgba(255,255,255,.18), transparent 40%),
+          repeating-linear-gradient(135deg, #ebeae8 0 12px, #e2e0dd 12px 24px);
+        display: grid; place-items: center; color: #8a8680;
+        font-family: var(--font-ui); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
+      }
+      .logos {
+        display: flex; flex-wrap: wrap; gap: 28px; justify-content: space-between;
+        padding: 8px 0 48px; color: var(--faint);
+        font-family: var(--font-ui); font-weight: 650; font-size: 13px; letter-spacing: 0.04em;
+      }
+      .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+      .card { background: var(--card); border: 1px solid var(--line); border-radius: 24px; overflow: hidden; }
+      .card .pad { padding: 22px; }
+      .split { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+      .quotes { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+      .quote { background: #fff; border: 1px solid var(--line); border-radius: 24px; padding: 28px; }
+      .quote p { font-size: 18px; color: #171717; }
+      .who { font-family: var(--font-ui); font-size: 13px; color: var(--faint); margin: 0; }
+      .price-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+      .price { background: #fff; border: 1px solid var(--line); border-radius: 24px; padding: 28px; display: flex; flex-direction: column; gap: 8px; }
+      .price.featured { background: #111; color: #fff; border-color: #111; }
+      .price.featured p, .price.featured li { color: #d4d4d4; }
+      .amount { font-family: var(--font-display); font-weight: var(--font-display-weight); font-size: 42px; letter-spacing: -0.04em; margin: 8px 0 4px; }
+      .amount span { font-size: 16px; color: inherit; opacity: .6; }
+      ul.feats { margin: 12px 0 20px; padding: 0; list-style: none; }
+      ul.feats li { padding: 8px 0; border-bottom: 1px solid var(--line); color: #404040; }
+      .price.featured ul.feats li { border-color: rgba(255,255,255,.12); }
+      .faq { display: grid; gap: 10px; max-width: 760px; }
+      details {
+        background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 4px 18px;
+      }
+      summary {
+        font-family: var(--font-ui); font-weight: var(--font-ui-weight);
+        cursor: pointer; padding: 14px 0; list-style: none;
+      }
+      summary::-webkit-details-marker { display: none; }
+      details p { padding-bottom: 12px; }
+      .cta {
+        text-align: center; background: #111; color: #fff; border-radius: 28px; padding: 56px 28px;
+      }
+      .cta p { color: #a3a3a3; max-width: 36rem; margin: 0 auto 22px; }
+      .cta h2 { color: #fff; }
+      footer {
+        padding: 56px 0 200px;
+        font-family: var(--font-ui); font-weight: var(--font-ui-weight);
+        font-size: 13px; color: var(--faint);
+      }
+      .foot { display: grid; grid-template-columns: 1.4fr repeat(3, 1fr); gap: 24px; }
+      .foot b { display: block; color: #111; margin-bottom: 10px; }
+      .foot a { display: block; padding: 4px 0; }
+      form.news { display: flex; gap: 8px; margin-top: 12px; }
+      input {
+        flex: 1; border: 1px solid var(--line); border-radius: 999px; padding: 11px 14px;
+        font: inherit; font-family: var(--font-ui);
+      }
+      label { display: block; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--faint); margin-bottom: 6px; }
+      .cmd {
+        display: inline-block;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 13px; background: #111; color: #fff;
+        padding: 10px 14px; border-radius: 12px; letter-spacing: 0;
+      }
+      .steps code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 12px; background: #f4f4f5; padding: 2px 6px; border-radius: 6px;
+      }
+      @media (max-width: 860px) {
+        .hero, .split, .grid-3, .quotes, .price-grid, .foot { grid-template-columns: 1fr; }
+        header { flex-wrap: wrap; }
+        .shot.tall { aspect-ratio: 16 / 10; }
+      }
+    </style>
+    <script type="module" src="/__fontdock/fontdock-toolbar.js" data-fontdock-stack="html" data-fontdock-css="css-variables"></script>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <a class="logo" href="#top"><span class="mark">Aa</span>fontdock</a>
+        <nav>
+          <a href="#product">Product</a>
+          <a href="#howto">How to</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+        <div class="header-actions">
+          <button class="btn-ghost" type="button">GitHub</button>
+          <button class="btn-solid" type="button">Get started</button>
+        </div>
+      </header>
+
+      <section class="hero" id="top">
+        <div>
+          <p class="kicker">Live specimen</p>
+          <h1>Dock a pairing on a real page.</h1>
+          <p class="lede">
+            Mix Display, Body and UI on the bar below. This landing is a stand-in for the site
+            you’ll type — headlines, cards, prices, FAQ — so you can commit a combo in context.
+          </p>
+          <p class="cmd">npx fontdock@latest init</p>
+        </div>
+        <figure class="shot">
+          <div class="ph">Product screenshot · 1400 × 875</div>
+        </figure>
+      </section>
+    </div>
+
+    <section class="band" id="product">
+      <div class="wrap">
+        <p class="kicker">Product</p>
+        <h2>A toolbar, a Cursor skill, then nothing left behind.</h2>
+        <p>Preview live. Copy a prompt. Let the agent write the fonts. Uninstall the dock.</p>
+        <div class="grid-3">
+          <article class="card">
+            <figure class="shot" style="border:0;border-radius:0;aspect-ratio:16/10"><div class="ph">Feature · 640 × 400</div></figure>
+            <div class="pad">
+              <h3>Live dock</h3>
+              <p>Change Display, Body and optional UI without a rebuild. Weights and presets included.</p>
+            </div>
+          </article>
+          <article class="card">
+            <figure class="shot" style="border:0;border-radius:0;aspect-ratio:16/10"><div class="ph">Feature · 640 × 400</div></figure>
+            <div class="pad">
+              <h3>Cursor /fontdock</h3>
+              <p>The skill audits the stack, proposes two pairings, then writes idiomatic CSS from your prompt.</p>
+            </div>
+          </article>
+          <article class="card">
+            <figure class="shot" style="border:0;border-radius:0;aspect-ratio:16/10"><div class="ph">Feature · 640 × 400</div></figure>
+            <div class="pad">
+              <h3>Clean uninstall</h3>
+              <p><code>npx fontdock uninstall</code> removes the bar. The type you applied stays in the repo.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <div class="wrap">
+      <section class="split" id="howto">
+        <figure class="shot tall"><div class="ph">Portrait · 800 × 1000</div></figure>
+        <div>
+          <p class="kicker">How to</p>
+          <h2>Three commands. Then Cursor.</h2>
+          <p>1. <code>npx fontdock@latest init --inject</code> — skill, registry, toolbar in the layout.</p>
+          <p>2. Start the dev server. Mix faces on the bar. Hit <strong>Done</strong> to copy the apply prompt.</p>
+          <p>3. Paste it in Cursor (or type <code>/fontdock</code>). After fonts are written: <code>npx fontdock uninstall</code>.</p>
+          <p>Collapse the bar anytime with <code>Ctrl+Shift+F</code>.</p>
+        </div>
+      </section>
+
+      <section class="split">
+        <div>
+          <p class="kicker">In context</p>
+          <h2>If it holds here, it holds on your site.</h2>
+          <p>
+            Headlines at display size, body in a paragraph, chrome on buttons and nav. Scroll
+            pricing and FAQ before you commit — a pairing that sings at 68px can fail at 14px.
+          </p>
+        </div>
+        <figure class="shot"><div class="ph">Wide shot · 1100 × 700</div></figure>
+      </section>
+    </div>
+
+    <section class="band" id="customers">
+      <div class="wrap">
+        <p class="kicker">In the wild</p>
+        <h2>Same page, different pairing.</h2>
+        <div class="quotes">
+          <figure class="quote">
+            <p>“We pick the faces on the dock, paste Done into Cursor, and the landing looks like a product.”</p>
+            <p class="who">On a Next.js marketing site</p>
+          </figure>
+          <figure class="quote">
+            <p>“Bootstrap template, Lato everywhere. Two minutes later the hero and the pricing cards match.”</p>
+            <p class="who">On a static HTML landing</p>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <div class="wrap">
+      <section id="pricing">
+        <p class="kicker">Pricing</p>
+        <h2>Open source. The cards are here to judge type.</h2>
+        <div class="price-grid">
+          <article class="price">
+            <p class="kicker">Hobby</p>
+            <div class="amount">$0 <span>/ mo</span></div>
+            <p>Use the CLI and the bar on any local project.</p>
+            <ul class="feats">
+              <li>npx fontdock init</li>
+              <li>Live toolbar</li>
+              <li>Curated combos</li>
+            </ul>
+            <button class="btn-ghost" type="button">Get started</button>
+          </article>
+          <article class="price featured">
+            <p class="kicker">Studio</p>
+            <div class="amount">MIT</div>
+            <p>The license. Fork it, ship it, keep the fonts you apply.</p>
+            <ul class="feats">
+              <li>Commercial-open families</li>
+              <li>Cursor skill /fontdock</li>
+              <li>Uninstall leaves CSS</li>
+            </ul>
+            <button class="btn-solid" type="button" style="background:#fff;color:#111">Use Studio</button>
+          </article>
+          <article class="price">
+            <p class="kicker">Org</p>
+            <div class="amount">$0</div>
+            <p>Same tool. Bring your own GitHub and npm.</p>
+            <ul class="feats">
+              <li>No seat limits</li>
+              <li>No telemetry</li>
+              <li>Registry PRs welcome</li>
+            </ul>
+            <button class="btn-ghost" type="button">Contribute</button>
+          </article>
+        </div>
+      </section>
+
+      <section id="faq">
+        <p class="kicker">FAQ</p>
+        <h2>Before you run init.</h2>
+        <div class="faq">
+          <details open>
+            <summary>Does apply write CSS into my repo?</summary>
+            <p>No. <code>npx fontdock apply</code> and Done copy a prompt. Cursor writes the fonts for your stack, then you uninstall.</p>
+          </details>
+          <details>
+            <summary>Will the toolbar ship to production?</summary>
+            <p>It is injected for local preview. Run <code>npx fontdock uninstall</code> when you are done — layouts and <code>public/__fontdock</code> go away.</p>
+          </details>
+          <details>
+            <summary>Which licenses are in the registry?</summary>
+            <p>Fontshare (commercial-open), Google Fonts OFL, Open Foundry OFL. No personal-use-only files.</p>
+          </details>
+          <details>
+            <summary>How do I start on an existing site?</summary>
+            <p><code>npx fontdock@latest init --inject</code>, start the dev server, refresh, mix, Done, paste in Cursor.</p>
+          </details>
+        </div>
+      </section>
+
+      <section>
+        <div class="cta">
+          <p class="kicker" style="color:#a3a3a3">Get started</p>
+          <h2>One line, then /fontdock.</h2>
+          <p class="cmd" style="margin-bottom:18px">npx fontdock@latest init</p>
+          <p>Type <code style="color:#fff">/fontdock</code> in Cursor after init. Mix on this page first if you want.</p>
+        </div>
+      </section>
+    </div>
+
+    <footer>
+      <div class="wrap foot">
+        <div>
+          <a class="logo" href="#top"><span class="mark">Aa</span>fontdock</a>
+          <p>Live specimen for judging type in context. Mix on the bar, then Done.</p>
+        </div>
+        <div>
+          <b>Start</b>
+          <a href="#howto">How to</a>
+          <a href="#faq">FAQ</a>
+        </div>
+        <div>
+          <b>Commands</b>
+          <a href="#top">npx fontdock@latest init</a>
+          <a href="#top">npx fontdock uninstall</a>
+        </div>
+        <div>
+          <b>Cursor</b>
+          <a href="#top">/fontdock</a>
+          <a href="#top">Ctrl+Shift+F hides the bar</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
