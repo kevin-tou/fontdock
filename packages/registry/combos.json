@@ -1,0 +1,1494 @@
+{
+  "version": 1,
+  "updated": "2026-10-09",
+  "sources": {
+    "fontshare": {
+      "label": "Fontshare (Indian Type Foundry)",
+      "license": "ITF Fontshare Free Font License (commercial use allowed)",
+      "licenseUrl": "https://www.fontshare.com/licenses",
+      "preconnect": [
+        "https://api.fontshare.com",
+        "https://cdn.fontshare.com"
+      ]
+    },
+    "google": {
+      "label": "Google Fonts",
+      "license": "SIL Open Font License 1.1",
+      "licenseUrl": "https://scripts.sil.org/OFL",
+      "preconnect": [
+        "https://fonts.googleapis.com",
+        "https://fonts.gstatic.com"
+      ]
+    },
+    "open-foundry": {
+      "label": "Open Foundry",
+      "license": "SIL Open Font License 1.1 (via Google Fonts CDN)",
+      "licenseUrl": "https://open-foundry.com",
+      "preconnect": [
+        "https://fonts.googleapis.com",
+        "https://fonts.gstatic.com"
+      ]
+    },
+    "fontsource": {
+      "label": "Fontsource (jsDelivr CDN)",
+      "license": "SIL Open Font License 1.1 (per-family)",
+      "licenseUrl": "https://fontsource.org",
+      "preconnect": [
+        "https://cdn.jsdelivr.net"
+      ]
+    }
+  },
+  "combos": [
+    {
+      "id": "saas-modern-tech",
+      "name": "SaaS & Modern Tech",
+      "mood": "saas",
+      "keywords": [
+        "clean",
+        "dashboard",
+        "minimal",
+        "b2b",
+        "startup",
+        "saas",
+        "product",
+        "analytics",
+        "pricing",
+        "tableau de bord",
+        "start-up"
+      ],
+      "rationale": "Cabinet Grotesk brings confident product headlines; Satoshi stays neutral and highly readable in dense UI.",
+      "display": {
+        "family": "Cabinet Grotesk",
+        "cssFamily": "\"Cabinet Grotesk\", ui-sans-serif, system-ui, sans-serif",
+        "role": "display",
+        "category": "sans",
+        "source": "fontshare",
+        "slug": "cabinet-grotesk",
+        "weights": [
+          400,
+          500,
+          700,
+          800
+        ],
+        "cdn": "https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800&display=swap",
+        "page": "https://www.fontshare.com/fonts/cabinet-grotesk",
+        "nextFont": null
+      },
+      "body": {
+        "family": "Satoshi",
+        "cssFamily": "\"Satoshi\", ui-sans-serif, system-ui, sans-serif",
+        "role": "body",
+        "category": "sans",
+        "source": "fontshare",
+        "slug": "satoshi",
+        "weights": [
+          400,
+          500,
+          700
+        ],
+        "cdn": "https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap",
+        "page": "https://www.fontshare.com/fonts/satoshi",
+        "nextFont": null
+      },
+      "ui": {
+        "family": "Inter",
+        "cssFamily": "Inter, ui-sans-serif, system-ui, sans-serif",
+        "role": "ui",
+        "category": "sans",
+        "source": "google",
+        "slug": "inter",
+        "weights": [
+          400,
+          500,
+          600,
+          700
+        ],
+        "cdn": "https://fonts.googleapis.com/css2?family=Inter:wght@400..700&display=swap",
+        "page": "https://fonts.google.com/specimen/Inter",
+        "nextFont": "Inter"
+      }
+    },
+    {
+      "id": "creative-studio-agency",
+      "name": "Creative Studio & Agency",
+      "mood": "studio",
+      "keywords": [
+        "punchy",
+        "bold",
+        "portfolio",
+        "agency",
+        "award",
+        "studio",
+        "branding",
+        "awwwards",
+        "agence",
+        "créatif",
+        "creatif"
+      ],
+      "rationale": "Clash Display is unapologetic on hero titles; General Sans keeps case studies and UI copy professional.",
+      "display": {
+        "family": "Clash Display",
+        "cssFamily": "\"Clash Display\", ui-sans-serif, system-ui, sans-serif",
+        "role": "display",
+        "category": "display",
+        "source": "fontshare",
+        "slug": "clash-display",
+        "weights": [
+          400,
+          500,
+          600,
+          700
+        ],
+        "cdn": "https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&display=swap",
+        "page": "https://www.fontshare.com/fonts/clash-display",
+        "nextFont": null
+      },
+      "body": {
+        "family": "General Sans",
+        "cssFamily": "\"General Sans\", ui-sans-serif, system-ui, sans-serif",
+        "role": "body",
+        "category": "sans",
+        "source": "fontshare",
+        "slug": "general-sans",
+        "weights": [
+          400,
+          500,
+          600
+        ],
+        "cdn": "https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&display=swap",
+        "page": "https://www.fontshare.com/fonts/general-sans",
+        "nextFont": null
+      },
+      "ui": {
+        "family": "Inter",
+        "cssFamily": "Inter, ui-sans-serif, system-ui, sans-serif",
+        "role": "ui",
+        "category": "sans",
+        "source": "google",
+        "slug": "inter",
+        "weights": [
+          400,
+          500,
+          600,
+          700
+        ],
+        "cdn": "https://fonts.googleapis.com/css2?family=Inter:wght@400..700&display=swap",
+        "page": "https://fonts.google.com/specimen/Inter",
+        "nextFont": "Inter"
+      }
+    },
+    {
+      "id": "warm-editorial-luxe",
+      "name": "Warm Editorial & Luxe",
+      "mood": "editorial",
+      "keywords": [
+        "refined",
+        "heritage",
+        "editorial",
+        "story",
+        "chic",
+        "luxe",
+        "luxury",
+        "magazine",
+        "serif",
+        "fashion",
+        "journal",
+        "élégant",
+        "elegant"
+      ],
+      "rationale": "Fraunces has optical-size warmth for headlines; Plus Jakarta Sans keeps long reading modern rather than costume-drama.",
+      "display": {
+        "family": "Fraunces",
+        "cssFamily": "\"Fraunces\", ui-serif, Georgia, serif",
+        "role": "display",
+        "category": "serif",
+        "source": "google",
+        "slug": "fraunces",
+        "weights": [
+          400,
+          600,
+          700
+        ],
+        "cdn": "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&display=swap",
+        "page": "https://fonts.google.com/specimen/Fraunces",
+        "nextFont": "Fraunces"
+      },
+      "body": {
+        "family": "Plus Jakarta Sans",
+        "cssFamily": "\"Plus Jakarta Sans\", ui-sans-serif, system-ui, sans-serif",
+        "role": "body",
+        "category": "sans",
+        "source": "google",
+        "slug": "plus-jakarta-sans",
+        "weights": [
+          400,
+          500,
+          600,
+          700
+        ],
+        "cdn": "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400..700&display=swap",
+        "page": "https://fonts.google.com/specimen/Plus+Jakarta+Sans",
+        "nextFont": "Plus_Jakarta_Sans"
+      },
+      "ui": {
+        "family": "Public Sans",
+        "cssFamily": "\"Public Sans\", ui-sans-serif, system-ui, sans-serif",
+        "role": "ui",
+        "category": "sans",
+        "source": "google",
+        "slug": "public-sans",
+        "weights": [
+          400,
+          500,
+          600
+        ],
+        "cdn": "https://fonts.googleapis.com/css2?family=Public+Sans:wght@400..600&display=swap",
+        "page": "https://fonts.google.com/specimen/Public+Sans",
+        "nextFont": "Public_Sans"
+      }
+    },
+    {
+      "id": "tech-neo-brutalist",
+      "name": "Tech Neo-Brutalist",
+      "mood": "brutalist",
+      "keywords": [
+        "code",
+        "terminal",
+        "raw",
+        "crypto",
+        "cyber",
+        "brutalist",
+        "mono",
+        "hack",
+        "developer",
+        "oss",
+        "brut"
+      ],
+      "rationale": "Space Grotesk is engineered and slightly awkward in a good way; Space Mono locks the system to a terminal register.",
+      "display": {
+        "family": "Space Grotesk",
+        "cssFamily": "\"Space Grotesk\", ui-sans-serif, system-ui, sans-serif",
+        "role": "display",
+        "category": "sans",
+        "source": "google",
+        "slug": "space-grotesk",
+        "weights": [
+          400,
+          500,
+          700
+        ],
+        "cdn": "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400..700&display=swap",
+        "page": "https://fonts.google.com/specimen/Space+Grotesk",
+        "nextFont": "Space_Grotesk"
+      },
+      "body": {
+        "family": "Space Mono",
+        "cssFamily": "\"Space Mono\", ui-monospace, SFMono-Regular, monospace",
+        "role": "body",
+        "category": "mono",
+        "source": "google",
+        "slug": "space-mono",
+        "weights": [
+          400,
+          700
+        ],
+        "cdn": "https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap",
+        "page": "https://fonts.google.com/specimen/Space+Mono",
+        "nextFont": "Space_Mono"
+      },
+      "ui": {
+        "family": "Inter",
+        "cssFamily": "Inter, ui-sans-serif, system-ui, sans-serif",
+        "role": "ui",
+        "category": "sans",
+        "source": "google",
+        "slug": "inter",
+        "weights": [
+          400,
+          500,
+          600,
+          700
+        ],
+        "cdn": "https://fonts.googleapis.com/css2?family=Inter:wght@400..700&display=swap",
+        "page": "https://fonts.google.com/specimen/Inter",
+        "nextFont": "Inter"
+      }
+    },
+    {
+      "id": "artisanal-humanist",
+      "name": "Artisanal & Humanist",
+      "mood": "artisanal",
+      "keywords": [
+        "craft",
+        "eco",
+        "lifestyle",
+        "warmth",
+        "culinary",
+        "organic",
+        "artisan",
+        "food",
+        "wellness",
+        "humanist",
+        "cuisine",
+        "artisanal"
+      ],
+      "rationale": "Playfair Display carries craft and hospitality; Work Sans is a humanist workhorse that does not fight the serif.",
+      "display": {
+        "family": "Playfair Display",
+        "cssFamily": "\"Playfair Display\", ui-serif, Georgia, serif",
+        "role": "display",
+        "category": "serif",
+        "source": "google",
+        "slug": "playfair-display",
+        "weights": [
+          400,
+          600,
+          700
+        ],
+        "cdn": "https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&display=swap",
+        "page": "https://fonts.google.com/specimen/Playfair+Display",
+        "nextFont": "Playfair_Display"
+      },
+      "body": {
+        "family": "Work Sans",
+        "cssFamily": "\"Work Sans\", ui-sans-serif, system-ui, sans-serif",
+        "role": "body",
+        "category": "sans",
+        "source": "google",
+        "slug": "work-sans",
+        "weights": [
+          400,
+          500,
+          600
+        ],
+        "cdn": "https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,400..600;1,400..600&display=swap",
+        "page": "https://fonts.google.com/specimen/Work+Sans",
+        "nextFont": "Work_Sans"
+      },
+      "ui": {
+        "family": "Work Sans",
+        "cssFamily": "\"Work Sans\", ui-sans-serif, system-ui, sans-serif",
+        "role": "ui",
+        "category": "sans",
+        "source": "google",
+        "slug": "work-sans",
+        "weights": [
+          400,
+          500,
+          600
+        ],
+        "cdn": "https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,400..600;1,400..600&display=swap",
+        "page": "https://fonts.google.com/specimen/Work+Sans",
+        "nextFont": "Work_Sans"
+      }
+    },
+    {
+      "id": "contemporary-indie",
+      "name": "Contemporary Indie",
+      "mood": "indie",
+      "keywords": [
+        "open-source",
+        "avant-garde",
+        "acid",
+        "experimental",
+        "indie",
+        "culture",
+        "zine",
+        "music",
+        "art",
+        "underground"
+      ],
+      "rationale": "Syne is slightly off-grid and cultural; Inter keeps interface chrome invisible so the display can be weird.",
+      "display": {
+        "family": "Syne",
+        "cssFamily": "\"Syne\", ui-sans-serif, system-ui, sans-serif",
+        "role": "display",
+        "category": "display",
+        "source": "open-foundry",
+        "slug": "syne",
+        "weights": [
+          400,
+          600,
+          700,
+          800
+        ],
+        "cdn": "https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap",
+        "page": "https://fonts.google.com/specimen/Syne",
+        "nextFont": "Syne"
+      },
+      "body": {
+        "family": "Inter",
+        "cssFamily": "Inter, ui-sans-serif, system-ui, sans-serif",
+        "role": "body",
+        "category": "sans",
+        "source": "google",
+        "slug": "inter",
+        "weights": [
+          400,
+          500,
+          600,
+          700
+        ],
+        "cdn": "https://fonts.googleapis.com/css2?family=Inter:wght@400..700&display=swap",
+        "page": "https://fonts.google.com/specimen/Inter",
+        "nextFont": "Inter"
+      },
+      "ui": {
+        "family": "Inter",
+        "cssFamily": "Inter, ui-sans-serif, system-ui, sans-serif",
+        "role": "ui",
+        "category": "sans",
+        "source": "google",
+        "slug": "inter",
+        "weights": [
+          400,
+          500,
+          600,
+          700
+        ],
+        "cdn": "https://fonts.googleapis.com/css2?family=Inter:wght@400..700&display=swap",
+        "page": "https://fonts.google.com/specimen/Inter",
+        "nextFont": "Inter"
+      }
+    },
+    {
+      "id": "product-swiss",
+      "name": "Product Swiss",
+      "mood": "saas",
+      "keywords": [
+        "swiss",
+        "neutral",
+        "documentation",
+        "design-system",
+        "component",
+        "app",
+        "fintech",
+        "grid"
+      ],
+      "rationale": "Instrument Serif gives a sharp editorial accent; Instrument Sans is the matching UI family so the pair feels designed, not stacked.",
+      "display": {
+        "family": "Instrument Serif",
+        "cssFamily": "\"Instrument Serif\", ui-serif, Georgia, serif",
+        "role": "display",
+        "category": "serif",
+        "source": "google",
+        "slug": "instrument-serif",
+        "weights": [
+          400
+        ],
+        "cdn": "https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap",
+        "page": "https://fonts.google.com/specimen/Instrument+Serif",
+        "nextFont": "Instrument_Serif"
+      },
+      "body": {
+        "family": "Instrument Sans",
+        "cssFamily": "\"Instrument Sans\", ui-sans-serif, system-ui, sans-serif",
+        "role": "body",
+        "category": "sans",
+        "source": "google",
+        "slug": "instrument-sans",
+        "weights": [
+          400,
+          500,
+          600,
+          700
+        ],
+        "cdn": "https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400..700&display=swap",
+        "page": "https://fonts.google.com/specimen/Instrument+Sans",
+        "nextFont": "Instrument_Sans"
+      },
+      "ui": {
+        "family": "Instrument Sans",
+        "cssFamily": "\"Instrument Sans\", ui-sans-serif, system-ui, sans-serif",
+        "role": "ui",
+        "category": "sans",
+        "source": "google",
+        "slug": "instrument-sans",
+        "weights": [
+          400,
+          500,
+          600,
+          700
+        ],
+        "cdn": "https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400..700&display=swap",
+        "page": "https://fonts.google.com/specimen/Instrument+Sans",
+        "nextFont": "Instrument_Sans"
+      }
+    },
+    {
+      "id": "soft-startup",
+      "name": "Soft Startup",
+      "mood": "saas",
+      "keywords": [
+        "friendly",
+        "soft",
+        "consumer",
+        "mobile",
+        "onboarding",
+        "pastel",
+        "community",
+        "health"
+      ],
+      "rationale": "Outfit is geometric without going cold; Figtree is rounded and approachable for marketing and product copy.",
+      "display": {
+        "family": "Outfit",
+        "cssFamily": "Outfit, ui-sans-serif, system-ui, sans-serif",
+        "role": "display",
+        "category": "sans",
+        "source": "google",
+        "slug": "outfit",
+        "weights": [
+          500,
+          600,
+          700
+        ],
+        "cdn": "https://fonts.googleapis.com/css2?family=Outfit:wght@500..700&display=swap",
+        "page": "https://fonts.google.com/specimen/Outfit",
+        "nextFont": "Outfit"
+      },
+      "body": {
+        "family": "Figtree",
+        "cssFamily": "Figtree, ui-sans-serif, system-ui, sans-serif",
+        "role": "body",
+        "category": "sans",
+        "source": "google",
+        "slug": "figtree",
+        "weights": [
+          400,
+          500,
+          600
+        ],
+        "cdn": "https://fonts.googleapis.com/css2?family=Figtree:wght@400..600&display=swap",
+        "page": "https://fonts.google.com/specimen/Figtree",
+        "nextFont": "Figtree"
+      },
+      "ui": {
+        "family": "Figtree",
+        "cssFamily": "Figtree, ui-sans-serif, system-ui, sans-serif",
+        "role": "ui",
+        "category": "sans",
+        "source": "google",
+        "slug": "figtree",
+        "weights": [
+          400,
+          500,
+          600
+        ],
+        "cdn": "https://fonts.googleapis.com/css2?family=Figtree:wght@400..600&display=swap",
+        "page": "https://fonts.google.com/specimen/Figtree",
+        "nextFont": "Figtree"
+      }
+    },
+    {
+      "id": "news-editorial",
+      "name": "News Editorial",
+      "mood": "editorial",
+      "keywords": [
+        "news",
+        "blog",
+        "media",
+        "journalism",
+        "article",
+        "newsletter",
+        "press",
+        "reportage"
+      ],
+      "rationale": "Newsreader is a true text serif for articles; Public Sans is a civic grotesque that holds up in navigation and captions.",
+      "display": {
+        "family": "Newsreader",
+        "cssFamily": "Newsreader, ui-serif, Georgia, serif",
+        "role": "display",
+        "category": "serif",
+        "source": "google",
+        "slug": "newsreader",
+        "weights": [
+          400,
+          600,
+          700
+        ],
+        "cdn": "https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400..700&display=swap",
+        "page": "https://fonts.google.com/specimen/Newsreader",
+        "nextFont": "Newsreader"
+      },
+      "body": {
+        "family": "Public Sans",
+        "cssFamily": "\"Public Sans\", ui-sans-serif, system-ui, sans-serif",
+        "role": "body",
+        "category": "sans",
+        "source": "google",
+        "slug": "public-sans",
+        "weights": [
+          400,
+          500,
+          600
+        ],
+        "cdn": "https://fonts.googleapis.com/css2?family=Public+Sans:wght@400..600&display=swap",
+        "page": "https://fonts.google.com/specimen/Public+Sans",
+        "nextFont": "Public_Sans"
+      },
+      "ui": {
+        "family": "Public Sans",
+        "cssFamily": "\"Public Sans\", ui-sans-serif, system-ui, sans-serif",
+        "role": "ui",
+        "category": "sans",
+        "source": "google",
+        "slug": "public-sans",
+        "weights": [
+          400,
+          500,
+          600
+        ],
+        "cdn": "https://fonts.googleapis.com/css2?family=Public+Sans:wght@400..600&display=swap",
+        "page": "https://fonts.google.com/specimen/Public+Sans",
+        "nextFont": "Public_Sans"
+      }
+    },
+    {
+      "id": "instrument-geist",
+      "name": "Instrument & Geist",
+      "mood": "saas",
+      "keywords": [
+        "product",
+        "vercel",
+        "developer",
+        "dashboard",
+        "clean"
+      ],
+      "rationale": "Instrument Serif adds editorial sharpness; Geist Sans is the modern product UI workhorse.",
+      "display": {
+        "family": "Instrument Serif",
+        "cssFamily": "\"Instrument Serif\", ui-serif, Georgia, serif",
+        "role": "display",
+        "category": "serif",
+        "source": "google",
+        "slug": "instrument-serif",
+        "weights": [
+          400
+        ],
+        "cdn": "https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap",
+        "page": "https://fonts.google.com/specimen/Instrument+Serif",
+        "nextFont": "Instrument_Serif"
+      },
+      "body": {
+        "family": "Geist Sans",
+        "cssFamily": "\"Geist Sans\", ui-sans-serif, system-ui, sans-serif",
+        "role": "body",
+        "category": "sans",
+        "source": "fontsource",
+        "slug": "geist-sans",
+        "weights": [
+          400,
+          500,
+          600,
+          700
+        ],
+        "cdn": "https://cdn.jsdelivr.net/npm/@fontsource/geist-sans@5.3.0/400.css",
+        "page": "https://fontsource.org/fonts/geist-sans",
+        "nextFont": null,
+        "cdnPattern": "https://cdn.jsdelivr.net/npm/@fontsource/geist-sans@5.3.0/{weight}.css"
+      },
+      "ui": {
+        "family": "Geist Sans",
+        "cssFamily": "\"Geist Sans\", ui-sans-serif, system-ui, sans-serif",
+        "role": "ui",
+        "category": "sans",
+        "source": "fontsource",
+        "slug": "geist-sans",
+        "weights": [
+          400,
+          500,
+          600,
+          700
+        ],
+        "cdn": "https://cdn.jsdelivr.net/npm/@fontsource/geist-sans@5.3.0/400.css",
+        "page": "https://fontsource.org/fonts/geist-sans",
+        "nextFont": null,
+        "cdnPattern": "https://cdn.jsdelivr.net/npm/@fontsource/geist-sans@5.3.0/{weight}.css"
+      }
+    },
+    {
+      "id": "bricolage-jakarta",
+      "name": "Bricolage & Jakarta",
+      "mood": "studio",
+      "keywords": [
+        "playful",
+        "brand",
+        "startup",
+        "friendly",
+        "creative"
+      ],
+      "rationale": "Bricolage Grotesque is quirky on titles; Plus Jakarta Sans keeps long copy calm.",
+      "display": {
+        "family": "Bricolage Grotesque",
+        "cssFamily": "\"Bricolage Grotesque\", ui-sans-serif, system-ui, sans-serif",
+        "role": "display",
+        "category": "display",
+        "source": "google",
+        "slug": "bricolage-grotesque",
+        "weights": [
+          400,
+          500,
+          600,
+          700,
+          800
+        ],
+        "cdn": "https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400..800&display=swap",
+        "page": "https://fonts.google.com/specimen/Bricolage+Grotesque",
+        "nextFont": "Bricolage_Grotesque"
+      },
+      "body": {
+        "family": "Plus Jakarta Sans",
+        "cssFamily": "\"Plus Jakarta Sans\", ui-sans-serif, system-ui, sans-serif",
+        "role": "body",
+        "category": "sans",
+        "source": "google",
+        "slug": "plus-jakarta-sans",
+        "weights": [
+          400,
+          500,
+          600,
+          700
+        ],
+        "cdn": "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400..700&display=swap",
+        "page": "https://fonts.google.com/specimen/Plus+Jakarta+Sans",
+        "nextFont": "Plus_Jakarta_Sans"
+      }
+    },
+    {
+      "id": "cinzel-fauna",
+      "name": "Cinzel & Fauna",
+      "mood": "editorial",
+      "keywords": [
+        "luxury",
+        "heritage",
+        "wedding",
+        "classic",
+        "elegant"
+      ],
+      "rationale": "Cinzel carries ceremonial display energy; Fauna One softens reading with a human serif.",
+      "display": {
+        "family": "Cinzel",
+        "cssFamily": "\"Cinzel\", ui-serif, Georgia, serif",
+        "role": "display",
+        "category": "serif",
+        "source": "google",
+        "slug": "cinzel",
+        "weights": [
+          400,
+          500,
+          600,
+          700
+        ],
+        "cdn": "https://fonts.googleapis.com/css2?family=Cinzel:wght@400..700&display=swap",
+        "page": "https://fonts.google.com/specimen/Cinzel",
+        "nextFont": "Cinzel"
+      },
+      "body": {
+        "family": "Fauna One",
+        "cssFamily": "\"Fauna One\", ui-serif, Georgia, serif",
+        "role": "body",
+        "category": "serif",
+        "source": "google",
+        "slug": "fauna-one",
+        "weights": [
+          400
+        ],
+        "cdn": "https://fonts.googleapis.com/css2?family=Fauna+One&display=swap",
+        "page": "https://fonts.google.com/specimen/Fauna+One",
+        "nextFont": "Fauna_One"
+      }
+    },
+    {
+      "id": "epilogue-manrope",
+      "name": "Epilogue & Manrope",
+      "mood": "saas",
+      "keywords": [
+        "geometric",
+        "app",
+        "modern",
+        "mobile",
+        "clean"
+      ],
+      "rationale": "Epilogue is a confident geometric display; Manrope is rounded and highly legible in UI.",
+      "display": {
+        "family": "Epilogue",
+        "cssFamily": "Epilogue, ui-sans-serif, system-ui, sans-serif",
+        "role": "display",
+        "category": "sans",
+        "source": "google",
+        "slug": "epilogue",
+        "weights": [
+          400,
+          500,
+          600,
+          700,
+          800
+        ],
+        "cdn": "https://fonts.googleapis.com/css2?family=Epilogue:wght@400..800&display=swap",
+        "page": "https://fonts.google.com/specimen/Epilogue",
+        "nextFont": "Epilogue"
+      },
+      "body": {
+        "family": "Manrope",
+        "cssFamily": "Manrope, ui-sans-serif, system-ui, sans-serif",
+        "role": "body",
+        "category": "sans",
+        "source": "google",
+        "slug": "manrope",
+        "weights": [
+          400,
+          500,
+          600,
+          700
+        ],
+        "cdn": "https://fonts.googleapis.com/css2?family=Manrope:wght@400..700&display=swap",
+        "page": "https://fonts.google.com/specimen/Manrope",
+        "nextFont": "Manrope"
+      },
+      "ui": {
+        "family": "Manrope",
+        "cssFamily": "Manrope, ui-sans-serif, system-ui, sans-serif",
+        "role": "ui",
+        "category": "sans",
+        "source": "google",
+        "slug": "manrope",
+        "weights": [
+          400,
+          500,
+          600,
+          700
+        ],
+        "cdn": "https://fonts.googleapis.com/css2?family=Manrope:wght@400..700&display=swap",
+        "page": "https://fonts.google.com/specimen/Manrope",
+        "nextFont": "Manrope"
+      }
+    },
+    {
+      "id": "prata-lato",
+      "name": "Prata & Lato",
+      "mood": "editorial",
+      "keywords": [
+        "fashion",
+        "magazine",
+        "classic",
+        "blog",
+        "serif"
+      ],
+      "rationale": "Prata is a high-contrast fashion display; Lato is a neutral humanist body.",
+      "display": {
+        "family": "Prata",
+        "cssFamily": "\"Prata\", ui-serif, Georgia, serif",
+        "role": "display",
+        "category": "serif",
+        "source": "google",
+        "slug": "prata",
+        "weights": [
+          400
+        ],
+        "cdn": "https://fonts.googleapis.com/css2?family=Prata&display=swap",
+        "page": "https://fonts.google.com/specimen/Prata",
+        "nextFont": "Prata"
+      },
+      "body": {
+        "family": "Lato",
+        "cssFamily": "Lato, ui-sans-serif, system-ui, sans-serif",
+        "role": "body",
+        "category": "sans",
+        "source": "google",
+        "slug": "lato",
+        "weights": [
+          400,
+          700
+        ],
+        "cdn": "https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap",
+        "page": "https://fonts.google.com/specimen/Lato",
+        "nextFont": "Lato"
+      }
+    },
+    {
+      "id": "chivo-overpass",
+      "name": "Chivo & Overpass",
+      "mood": "saas",
+      "keywords": [
+        "tech",
+        "industrial",
+        "neutral",
+        "docs",
+        "system"
+      ],
+      "rationale": "Chivo is sturdy and slightly mechanical; Overpass reads cleanly in dense interfaces.",
+      "display": {
+        "family": "Chivo",
+        "cssFamily": "Chivo, ui-sans-serif, system-ui, sans-serif",
+        "role": "display",
+        "category": "sans",
+        "source": "google",
+        "slug": "chivo",
+        "weights": [
+          400,
+          500,
+          700
+        ],
+        "cdn": "https://fonts.googleapis.com/css2?family=Chivo:wght@400..700&display=swap",
+        "page": "https://fonts.google.com/specimen/Chivo",
+        "nextFont": "Chivo"
+      },
+      "body": {
+        "family": "Overpass",
+        "cssFamily": "Overpass, ui-sans-serif, system-ui, sans-serif",
+        "role": "body",
+        "category": "sans",
+        "source": "google",
+        "slug": "overpass",
+        "weights": [
+          400,
+          500,
+          600,
+          700
+        ],
+        "cdn": "https://fonts.googleapis.com/css2?family=Overpass:wght@400..700&display=swap",
+        "page": "https://fonts.google.com/specimen/Overpass",
+        "nextFont": "Overpass"
+      },
+      "ui": {
+        "family": "Overpass",
+        "cssFamily": "Overpass, ui-sans-serif, system-ui, sans-serif",
+        "role": "ui",
+        "category": "sans",
+        "source": "google",
+        "slug": "overpass",
+        "weights": [
+          400,
+          500,
+          600,
+          700
+        ],
+        "cdn": "https://fonts.googleapis.com/css2?family=Overpass:wght@400..700&display=swap",
+        "page": "https://fonts.google.com/specimen/Overpass",
+        "nextFont": "Overpass"
+      }
+    },
+    {
+      "id": "bodoni-albert",
+      "name": "Bodoni & Albert",
+      "mood": "editorial",
+      "keywords": [
+        "fashion",
+        "luxe",
+        "editorial",
+        "high-fashion",
+        "chic"
+      ],
+      "rationale": "Bodoni Moda delivers classic high fashion; Albert Sans keeps captions modern.",
+      "display": {
+        "family": "Bodoni Moda",
+        "cssFamily": "\"Bodoni Moda\", ui-serif, Georgia, serif",
+        "role": "display",
+        "category": "serif",
+        "source": "google",
+        "slug": "bodoni-moda",
+        "weights": [
+          400,
+          500,
+          600,
+          700
+        ],
+        "cdn": "https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400..700&display=swap",
+        "page": "https://fonts.google.com/specimen/Bodoni+Moda",
+        "nextFont": "Bodoni_Moda"
+      },
+      "body": {
+        "family": "Albert Sans",
+        "cssFamily": "\"Albert Sans\", ui-sans-serif, system-ui, sans-serif",
+        "role": "body",
+        "category": "sans",
+        "source": "google",
+        "slug": "albert-sans",
+        "weights": [
+          400,
+          500,
+          600,
+          700
+        ],
+        "cdn": "https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400..700&display=swap",
+        "page": "https://fonts.google.com/specimen/Albert+Sans",
+        "nextFont": "Albert_Sans"
+      }
+    },
+    {
+      "id": "unbounded-space",
+      "name": "Unbounded & Space",
+      "mood": "indie",
+      "keywords": [
+        "bold",
+        "experimental",
+        "tech",
+        "sport",
+        "display"
+      ],
+      "rationale": "Unbounded is loud and contemporary; Space Grotesk grounds it with engineered body copy.",
+      "display": {
+        "family": "Unbounded",
+        "cssFamily": "Unbounded, ui-sans-serif, system-ui, sans-serif",
+        "role": "display",
+        "category": "display",
+        "source": "google",
+        "slug": "unbounded",
+        "weights": [
+          400,
+          500,
+          600,
+          700
+        ],
+        "cdn": "https://fonts.googleapis.com/css2?family=Unbounded:wght@400..700&display=swap",
+        "page": "https://fonts.google.com/specimen/Unbounded",
+        "nextFont": "Unbounded"
+      },
+      "body": {
+        "family": "Space Grotesk",
+        "cssFamily": "\"Space Grotesk\", ui-sans-serif, system-ui, sans-serif",
+        "role": "body",
+        "category": "sans",
+        "source": "google",
+        "slug": "space-grotesk",
+        "weights": [
+          400,
+          500,
+          700
+        ],
+        "cdn": "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400..700&display=swap",
+        "page": "https://fonts.google.com/specimen/Space+Grotesk",
+        "nextFont": "Space_Grotesk"
+      }
+    },
+    {
+      "id": "cormorant-proza",
+      "name": "Cormorant & Proza",
+      "mood": "editorial",
+      "keywords": [
+        "literature",
+        "book",
+        "heritage",
+        "story",
+        "reading"
+      ],
+      "rationale": "Cormorant Garamond is literary display; Proza Libre is a readable humanist text face.",
+      "display": {
+        "family": "Cormorant Garamond",
+        "cssFamily": "\"Cormorant Garamond\", ui-serif, Georgia, serif",
+        "role": "display",
+        "category": "serif",
+        "source": "google",
+        "slug": "cormorant-garamond",
+        "weights": [
+          400,
+          500,
+          600,
+          700
+        ],
+        "cdn": "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap",
+        "page": "https://fonts.google.com/specimen/Cormorant+Garamond",
+        "nextFont": "Cormorant_Garamond"
+      },
+      "body": {
+        "family": "Proza Libre",
+        "cssFamily": "\"Proza Libre\", ui-sans-serif, system-ui, sans-serif",
+        "role": "body",
+        "category": "sans",
+        "source": "google",
+        "slug": "proza-libre",
+        "weights": [
+          400,
+          500,
+          600,
+          700
+        ],
+        "cdn": "https://fonts.googleapis.com/css2?family=Proza+Libre:wght@400;500;600;700&display=swap",
+        "page": "https://fonts.google.com/specimen/Proza+Libre",
+        "nextFont": "Proza_Libre"
+      }
+    },
+    {
+      "id": "outfit-source",
+      "name": "Outfit & Source Sans",
+      "mood": "saas",
+      "keywords": [
+        "friendly",
+        "product",
+        "docs",
+        "neutral",
+        "ui"
+      ],
+      "rationale": "Outfit is soft-geometric for headlines; Source Sans 3 is a proven UI/text family.",
+      "display": {
+        "family": "Outfit",
+        "cssFamily": "Outfit, ui-sans-serif, system-ui, sans-serif",
+        "role": "display",
+        "category": "sans",
+        "source": "google",
+        "slug": "outfit",
+        "weights": [
+          400,
+          500,
+          600,
+          700
+        ],
+        "cdn": "https://fonts.googleapis.com/css2?family=Outfit:wght@400..700&display=swap",
+        "page": "https://fonts.google.com/specimen/Outfit",
+        "nextFont": "Outfit"
+      },
+      "body": {
+        "family": "Source Sans 3",
+        "cssFamily": "\"Source Sans 3\", ui-sans-serif, system-ui, sans-serif",
+        "role": "body",
+        "category": "sans",
+        "source": "google",
+        "slug": "source-sans-3",
+        "weights": [
+          400,
+          500,
+          600,
+          700
+        ],
+        "cdn": "https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400..700&display=swap",
+        "page": "https://fonts.google.com/specimen/Source+Sans+3",
+        "nextFont": "Source_Sans_3"
+      },
+      "ui": {
+        "family": "Source Sans 3",
+        "cssFamily": "\"Source Sans 3\", ui-sans-serif, system-ui, sans-serif",
+        "role": "ui",
+        "category": "sans",
+        "source": "google",
+        "slug": "source-sans-3",
+        "weights": [
+          400,
+          500,
+          600,
+          700
+        ],
+        "cdn": "https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400..700&display=swap",
+        "page": "https://fonts.google.com/specimen/Source+Sans+3",
+        "nextFont": "Source_Sans_3"
+      }
+    },
+    {
+      "id": "sentient-satoshi",
+      "name": "Sentient & Satoshi",
+      "mood": "studio",
+      "keywords": [
+        "brand",
+        "agency",
+        "serif",
+        "modern",
+        "portfolio"
+      ],
+      "rationale": "Sentient brings contemporary serif character; Satoshi is the Fontshare product default.",
+      "display": {
+        "family": "Sentient",
+        "cssFamily": "\"Sentient\", ui-serif, Georgia, serif",
+        "role": "display",
+        "category": "serif",
+        "source": "fontshare",
+        "slug": "sentient",
+        "weights": [
+          400,
+          500,
+          700
+        ],
+        "cdn": "https://api.fontshare.com/v2/css?f[]=sentient@400,500,700&display=swap",
+        "page": "https://www.fontshare.com/fonts/sentient",
+        "nextFont": null
+      },
+      "body": {
+        "family": "Satoshi",
+        "cssFamily": "\"Satoshi\", ui-sans-serif, system-ui, sans-serif",
+        "role": "body",
+        "category": "sans",
+        "source": "fontshare",
+        "slug": "satoshi",
+        "weights": [
+          400,
+          500,
+          700
+        ],
+        "cdn": "https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap",
+        "page": "https://www.fontshare.com/fonts/satoshi",
+        "nextFont": null
+      }
+    },
+    {
+      "id": "ranade-general",
+      "name": "Ranade & General Sans",
+      "mood": "saas",
+      "keywords": [
+        "clean",
+        "startup",
+        "dashboard",
+        "minimal",
+        "b2b"
+      ],
+      "rationale": "Ranade is a sharp Indian Type Foundry display; General Sans handles UI copy with ease.",
+      "display": {
+        "family": "Ranade",
+        "cssFamily": "\"Ranade\", ui-sans-serif, system-ui, sans-serif",
+        "role": "display",
+        "category": "sans",
+        "source": "fontshare",
+        "slug": "ranade",
+        "weights": [
+          400,
+          500,
+          700
+        ],
+        "cdn": "https://api.fontshare.com/v2/css?f[]=ranade@400,500,700&display=swap",
+        "page": "https://www.fontshare.com/fonts/ranade",
+        "nextFont": null
+      },
+      "body": {
+        "family": "General Sans",
+        "cssFamily": "\"General Sans\", ui-sans-serif, system-ui, sans-serif",
+        "role": "body",
+        "category": "sans",
+        "source": "fontshare",
+        "slug": "general-sans",
+        "weights": [
+          400,
+          500,
+          600
+        ],
+        "cdn": "https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&display=swap",
+        "page": "https://www.fontshare.com/fonts/general-sans",
+        "nextFont": null
+      },
+      "ui": {
+        "family": "General Sans",
+        "cssFamily": "\"General Sans\", ui-sans-serif, system-ui, sans-serif",
+        "role": "ui",
+        "category": "sans",
+        "source": "fontshare",
+        "slug": "general-sans",
+        "weights": [
+          400,
+          500,
+          600
+        ],
+        "cdn": "https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&display=swap",
+        "page": "https://www.fontshare.com/fonts/general-sans",
+        "nextFont": null
+      }
+    },
+    {
+      "id": "zodiak-switzer",
+      "name": "Zodiak & Switzer",
+      "mood": "editorial",
+      "keywords": [
+        "magazine",
+        "editorial",
+        "news",
+        "serif",
+        "refined"
+      ],
+      "rationale": "Zodiak is a versatile editorial serif; Switzer is a neutral grotesque for interface chrome.",
+      "display": {
+        "family": "Zodiak",
+        "cssFamily": "\"Zodiak\", ui-serif, Georgia, serif",
+        "role": "display",
+        "category": "serif",
+        "source": "fontshare",
+        "slug": "zodiak",
+        "weights": [
+          400,
+          500,
+          700
+        ],
+        "cdn": "https://api.fontshare.com/v2/css?f[]=zodiak@400,500,700&display=swap",
+        "page": "https://www.fontshare.com/fonts/zodiak",
+        "nextFont": null
+      },
+      "body": {
+        "family": "Switzer",
+        "cssFamily": "\"Switzer\", ui-sans-serif, system-ui, sans-serif",
+        "role": "body",
+        "category": "sans",
+        "source": "fontshare",
+        "slug": "switzer",
+        "weights": [
+          400,
+          500,
+          600,
+          700
+        ],
+        "cdn": "https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700&display=swap",
+        "page": "https://www.fontshare.com/fonts/switzer",
+        "nextFont": null
+      },
+      "ui": {
+        "family": "Switzer",
+        "cssFamily": "\"Switzer\", ui-sans-serif, system-ui, sans-serif",
+        "role": "ui",
+        "category": "sans",
+        "source": "fontshare",
+        "slug": "switzer",
+        "weights": [
+          400,
+          500,
+          600,
+          700
+        ],
+        "cdn": "https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700&display=swap",
+        "page": "https://www.fontshare.com/fonts/switzer",
+        "nextFont": null
+      }
+    },
+    {
+      "id": "young-urbanist",
+      "name": "Young Serif & Urbanist",
+      "mood": "indie",
+      "keywords": [
+        "culture",
+        "blog",
+        "friendly",
+        "city",
+        "editorial"
+      ],
+      "rationale": "Young Serif is warm and slightly naive; Urbanist keeps the system geometric and current.",
+      "display": {
+        "family": "Young Serif",
+        "cssFamily": "\"Young Serif\", ui-serif, Georgia, serif",
+        "role": "display",
+        "category": "serif",
+        "source": "google",
+        "slug": "young-serif",
+        "weights": [
+          400
+        ],
+        "cdn": "https://fonts.googleapis.com/css2?family=Young+Serif&display=swap",
+        "page": "https://fonts.google.com/specimen/Young+Serif",
+        "nextFont": "Young_Serif"
+      },
+      "body": {
+        "family": "Urbanist",
+        "cssFamily": "Urbanist, ui-sans-serif, system-ui, sans-serif",
+        "role": "body",
+        "category": "sans",
+        "source": "google",
+        "slug": "urbanist",
+        "weights": [
+          400,
+          500,
+          600,
+          700
+        ],
+        "cdn": "https://fonts.googleapis.com/css2?family=Urbanist:wght@400..700&display=swap",
+        "page": "https://fonts.google.com/specimen/Urbanist",
+        "nextFont": "Urbanist"
+      },
+      "ui": {
+        "family": "Urbanist",
+        "cssFamily": "Urbanist, ui-sans-serif, system-ui, sans-serif",
+        "role": "ui",
+        "category": "sans",
+        "source": "google",
+        "slug": "urbanist",
+        "weights": [
+          400,
+          500,
+          600,
+          700
+        ],
+        "cdn": "https://fonts.googleapis.com/css2?family=Urbanist:wght@400..700&display=swap",
+        "page": "https://fonts.google.com/specimen/Urbanist",
+        "nextFont": "Urbanist"
+      }
+    },
+    {
+      "id": "outfit-urbanist",
+      "name": "Outfit & Urbanist",
+      "mood": "saas",
+      "keywords": [
+        "geometric",
+        "product",
+        "startup",
+        "clean",
+        "city",
+        "app"
+      ],
+      "rationale": "Outfit 700 carries soft-geometric headlines; Urbanist 400 is a current, readable body.",
+      "display": {
+        "family": "Outfit",
+        "cssFamily": "Outfit, ui-sans-serif, system-ui, sans-serif",
+        "role": "display",
+        "category": "sans",
+        "source": "google",
+        "slug": "outfit",
+        "weights": [400, 500, 600, 700],
+        "cdn": "https://fonts.googleapis.com/css2?family=Outfit:wght@400..700&display=swap",
+        "page": "https://fonts.google.com/specimen/Outfit",
+        "nextFont": "Outfit"
+      },
+      "body": {
+        "family": "Urbanist",
+        "cssFamily": "Urbanist, ui-sans-serif, system-ui, sans-serif",
+        "role": "body",
+        "category": "sans",
+        "source": "google",
+        "slug": "urbanist",
+        "weights": [400, 500, 600, 700],
+        "cdn": "https://fonts.googleapis.com/css2?family=Urbanist:wght@400..700&display=swap",
+        "page": "https://fonts.google.com/specimen/Urbanist",
+        "nextFont": "Urbanist"
+      }
+    },
+    {
+      "id": "bricolage-satoshi-space",
+      "name": "Bricolage, Satoshi & Space",
+      "mood": "studio",
+      "keywords": [
+        "playful",
+        "brand",
+        "agency",
+        "startup",
+        "creative",
+        "grotesk"
+      ],
+      "rationale": "Bricolage Grotesque 700 is a quirky display; Satoshi 400 keeps reading calm; Space Grotesk 500 is a technical UI face.",
+      "display": {
+        "family": "Bricolage Grotesque",
+        "cssFamily": "\"Bricolage Grotesque\", ui-sans-serif, system-ui, sans-serif",
+        "role": "display",
+        "category": "display",
+        "source": "google",
+        "slug": "bricolage-grotesque",
+        "weights": [400, 500, 600, 700, 800],
+        "cdn": "https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400..800&display=swap",
+        "page": "https://fonts.google.com/specimen/Bricolage+Grotesque",
+        "nextFont": "Bricolage_Grotesque"
+      },
+      "body": {
+        "family": "Satoshi",
+        "cssFamily": "\"Satoshi\", ui-sans-serif, system-ui, sans-serif",
+        "role": "body",
+        "category": "sans",
+        "source": "fontshare",
+        "slug": "satoshi",
+        "weights": [400, 500, 700],
+        "cdn": "https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap",
+        "page": "https://www.fontshare.com/fonts/satoshi",
+        "nextFont": null
+      },
+      "ui": {
+        "family": "Space Grotesk",
+        "cssFamily": "\"Space Grotesk\", ui-sans-serif, system-ui, sans-serif",
+        "role": "ui",
+        "category": "sans",
+        "source": "google",
+        "slug": "space-grotesk",
+        "weights": [400, 500, 700],
+        "cdn": "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400..700&display=swap",
+        "page": "https://fonts.google.com/specimen/Space+Grotesk",
+        "nextFont": "Space_Grotesk"
+      }
+    }
+  ]
+}
