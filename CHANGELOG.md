@@ -4,6 +4,12 @@ All notable changes are documented here. The format follows [Keep a Changelog](h
 
 ## Unreleased
 
+## 0.1.1 — 2026-10-10
+
+### Fixed
+
+- Live toolbar now remaps common body tokens (`--body`, `--font-sans`, `--font-text`, …) and targets `p` / lists, so copy on sites like `.site { font-family: var(--body) }` actually changes.
+
 ## 0.1.0 — 2026-10-10
 
 ### Added

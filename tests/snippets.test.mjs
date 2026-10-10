@@ -28,3 +28,12 @@ test("next snippet refuses fake next/font for Fontshare", () => {
 test("toolbar script carries stack metadata", () => {
   match(toolbarScriptTag({ stack: "astro", css: "tailwind-v4" }), /data-fontdock-stack="astro"/);
 });
+
+test("preview sheet remaps body tokens and targets paragraphs", async () => {
+  const { readFileSync } = await import("node:fs");
+  const { fileURLToPath } = await import("node:url");
+  const { dirname, join } = await import("node:path");
+  const src = readFileSync(join(dirname(fileURLToPath(import.meta.url)), "../packages/toolbar/fontdock-toolbar.js"), "utf8");
+  match(src, /--body: var\(--font-body\) !important/);
+  match(src, /html, body, p, li/);
+});

@@ -827,9 +827,25 @@ function writePreviewSheet(hasUi) {
     style.id = "fontdock-preview";
     document.head.appendChild(style);
   }
+  const ui = hasUi ? "var(--font-ui)" : "var(--font-body)";
   style.textContent = `
-    html, body {
+    * {
+      --typo-body: var(--font-body) !important;
+      --typo-display: var(--font-display) !important;
+      --typo-ui: ${ui} !important;
+      --body: var(--font-body) !important;
+      --display: var(--font-display) !important;
+      --secondary: var(--font-display) !important;
+      --sans: ${ui} !important;
+      --font-text: var(--font-body) !important;
+      --font-sans: var(--font-body) !important;
+      --font-heading: var(--font-display) !important;
+    }
+    html, body, p, li, td, th, blockquote, figcaption, dt, dd,
+    .font-body, [data-fontdock="body"] {
       font-family: var(--font-body) !important;
+    }
+    html, body {
       font-weight: var(--font-body-weight, 400) !important;
     }
     h1, h2, h3, h4, h5, h6, .font-display, [data-fontdock="display"] {

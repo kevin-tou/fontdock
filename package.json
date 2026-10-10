@@ -1,6 +1,6 @@
 {
   "name": "fontdock",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Curated type pairings with a Cursor /fontdock skill and a live floating toolbar. The agent audits stack and DA, you preview fonts live, then uninstall cleanly.",
   "keywords": [
     "typography",
