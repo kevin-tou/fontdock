@@ -3,7 +3,17 @@ import { join, relative } from "node:path";
 import { detectProject } from "./detect.mjs";
 import { ejectToolbar } from "./inject.mjs";
 
-const STAGING_DIRS = ["public/__fontdock", "public/__fonty", "public/__typo", ".fontdock", ".fonty", ".typos"];
+const STAGING_DIRS = [
+  "public/__fontdock",
+  "src/assets/__fontdock",
+  "dist/assets/__fontdock",
+  "dist/__fontdock",
+  "public/__fonty",
+  "public/__typo",
+  ".fontdock",
+  ".fonty",
+  ".typos",
+];
 const STAGING_FILES = ["fontdock-toolbar.js", "fonty-toolbar.js", "typo-toolbar.js", "combos.json"];
 const CURSOR_FILES = [
   ".cursor/rules/fontdock.mdc",

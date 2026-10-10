@@ -45,6 +45,22 @@ test("applyPair prompt includes a custom display/body mix", async () => {
   match(result.prompt, /Satoshi/);
 });
 
+test("inject puts the toolbar in Pug source and src/assets for static dist sites", async () => {
+  const root = mkdtempSync(join(tmpdir(), "fontdock-pug-"));
+  mkdirSync(join(root, "src", "pug"), { recursive: true });
+  mkdirSync(join(root, "src", "assets"), { recursive: true });
+  mkdirSync(join(root, "dist"), { recursive: true });
+  writeFileSync(join(root, "package.json"), JSON.stringify({ name: "landing", devDependencies: { pug: "3.0.2" } }));
+  writeFileSync(join(root, "src", "pug", "index.pug"), "html\n    body\n        h1 Hi\n");
+  writeFileSync(join(root, "dist", "index.html"), "<html><body><h1>Hi</h1></body></html>\n");
+  const { injected } = await initProject(root, { inject: true });
+  equal(injected.ok, true);
+  ok(existsSync(join(root, "src", "assets", "__fontdock", "fontdock-toolbar.js")));
+  ok(existsSync(join(root, "dist", "__fontdock", "fontdock-toolbar.js")));
+  match(readFileSync(join(root, "src", "pug", "index.pug"), "utf8"), /src='\/assets\/__fontdock\/fontdock-toolbar\.js'/);
+  match(readFileSync(join(root, "dist", "index.html"), "utf8"), /fontdock-toolbar/);
+});
+
 test("uninstall removes scaffolding and leaves project CSS untouched", async () => {
   const root = fixture();
   await initProject(root, { inject: true });

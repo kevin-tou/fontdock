@@ -267,11 +267,11 @@ function detectCss(root, deps, cssFiles) {
 }
 
 function detectStaging(root, stack) {
-  const publicDir = firstExisting(root, ["public", "static", "src/public"]);
+  const publicDir = firstExisting(root, ["public", "static", "src/public", "src/assets"]);
   if (publicDir) {
     return {
       dir: join(root, publicDir, "__fontdock"),
-      urlBase: "/__fontdock",
+      urlBase: publicDir === "src/assets" ? "/assets/__fontdock" : "/__fontdock",
       publicDir,
     };
   }
@@ -312,8 +312,8 @@ function findLayoutFiles(root, stack) {
     "vite-react": ["index.html"],
     "vite-vue": ["index.html"],
     vite: ["index.html"],
-    html: ["index.html", "dist/index.html"],
-    unknown: ["index.html", "dist/index.html"],
+    html: ["src/pug/index.pug", "index.html", "dist/index.html"],
+    unknown: ["src/pug/index.pug", "index.html", "dist/index.html"],
   };
   return (candidates[stack.id] ?? ["index.html"]).filter((file) => existsSync(join(root, file)));
 }

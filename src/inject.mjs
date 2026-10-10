@@ -13,16 +13,23 @@ const LEGACY = [
 ];
 
 export function ensureToolbarAssets(root, report) {
-  mkdirSync(report.staging.dir, { recursive: true });
-  copyFileSync(TOOLBAR_PATH, join(report.staging.dir, TOOLBAR_FILE));
-  copyFileSync(COMBOS_PATH, join(report.staging.dir, "combos.json"));
+  const dests = new Set([report.staging.dir]);
+  if (existsSync(join(root, "dist"))) {
+    dests.add(join(root, "dist", "__fontdock"));
+    dests.add(join(root, "dist", "assets", "__fontdock"));
+  }
+  for (const dir of dests) {
+    mkdirSync(dir, { recursive: true });
+    copyFileSync(TOOLBAR_PATH, join(dir, TOOLBAR_FILE));
+    copyFileSync(COMBOS_PATH, join(dir, "combos.json"));
+  }
 }
 
 export function injectToolbar(root, report) {
   if (!report) throw new Error("injectToolbar requires a detect report");
   ensureToolbarAssets(root, report);
-  const target = pickInjectTarget(root, report);
-  if (!target) {
+  const targets = pickInjectTargets(root, report);
+  if (!targets.length) {
     return {
       ok: false,
       reason: "Could not find a layout/HTML file to inject. Add the script tag manually.",
@@ -34,17 +41,23 @@ export function injectToolbar(root, report) {
     };
   }
 
-  const path = join(root, target.file);
-  const original = readFileSync(path, "utf8");
-  if (original.includes(BEGIN) || original.includes("fonty:toolbar") || original.includes("typo-pair:toolbar")) {
-    return { ok: true, file: target.file, skipped: true };
+  const files = [];
+  let skipped = 0;
+  for (const target of targets) {
+    const path = join(root, target.file);
+    const original = readFileSync(path, "utf8");
+    if (original.includes(BEGIN) || original.includes("fonty:toolbar") || original.includes("typo-pair:toolbar")) {
+      skipped += 1;
+      files.push(target.file);
+      continue;
+    }
+    const snippet = buildInjectSnippet(report, target.kind);
+    const next = splice(original, snippet, target.kind);
+    mkdirSync(dirname(path), { recursive: true });
+    writeFileSync(path, next, "utf8");
+    files.push(target.file);
   }
-
-  const snippet = buildInjectSnippet(report, target.kind);
-  const next = splice(original, snippet, target.kind);
-  mkdirSync(dirname(path), { recursive: true });
-  writeFileSync(path, next, "utf8");
-  return { ok: true, file: target.file, skipped: false };
+  return { ok: true, file: files.join(", "), skipped: skipped === targets.length };
 }
 
 export function ejectToolbar(root, report) {
@@ -52,6 +65,7 @@ export function ejectToolbar(root, report) {
     ...(report?.layoutFiles ?? []),
     "index.html",
     "dist/index.html",
+    "src/pug/index.pug",
     "app/layout.tsx",
     "src/app/layout.tsx",
     "pages/_document.tsx",
@@ -72,16 +86,23 @@ export function ejectToolbar(root, report) {
   return { changed };
 }
 
-function pickInjectTarget(root, report) {
+function pickInjectTargets(root, report) {
   const ranked = [
     ...report.layoutFiles.map((file) => ({ file, kind: kindFor(file, report.stack.id) })),
+    { file: "src/pug/index.pug", kind: "pug" },
     { file: "index.html", kind: "html" },
     { file: "dist/index.html", kind: "html" },
   ];
-  return ranked.find((row) => existsSync(join(root, row.file))) ?? null;
+  const seen = new Set();
+  return ranked.filter((row) => {
+    if (seen.has(row.file) || !existsSync(join(root, row.file))) return false;
+    seen.add(row.file);
+    return true;
+  });
 }
 
 function kindFor(file, stackId) {
+  if (file.endsWith(".pug")) return "pug";
   if (file.endsWith(".astro")) return "astro";
   if (file.endsWith(".html")) return "html";
   if (stackId === "next-app" || stackId === "next-pages") return "next";
@@ -110,12 +131,21 @@ function buildInjectSnippet(report, kind) {
 {import.meta.env.DEV && <script type="module" src="${src}" data-fontdock-stack="${stack}" data-fontdock-css="${css}" />}
 <!-- ${END} -->`;
   }
+  if (kind === "pug") {
+    return `
+        // ${BEGIN}
+        script(type='module' src='${src}' data-fontdock-stack='${stack}' data-fontdock-css='${css}')
+        // ${END}`;
+  }
   return `<!-- ${BEGIN} -->
 <script type="module" src="${src}" data-fontdock-stack="${stack}" data-fontdock-css="${css}"></script>
 <!-- ${END} -->`;
 }
 
 function splice(original, snippet, kind) {
+  if (kind === "pug") {
+    return `${original.trimEnd()}\n${snippet}\n`;
+  }
   if (kind === "html" || kind === "astro") {
     if (/<\/body>/i.test(original)) {
       return original.replace(/<\/body>/i, `${snippet}\n</body>`);
@@ -141,7 +171,8 @@ function stripMarkers(source) {
   for (const { begin, end } of LEGACY) {
     next = next
       .replace(new RegExp(`\\{?/\\*\\s*${begin}[\\s\\S]*?${end}\\s*\\*/\\}?\\n?`, "g"), "")
-      .replace(new RegExp(`<!--\\s*${begin}\\s-->[\\s\\S]*?<!--\\s*${end}\\s-->\\n?`, "g"), "");
+      .replace(new RegExp(`<!--\\s*${begin}[\\s\\S]*?${end}\\s*-->\\n?`, "g"), "")
+      .replace(new RegExp(`\\n?\\s*//\\s*${begin}[\\s\\S]*?//\\s*${end}\\n?`, "g"), "\n");
   }
   return next;
 }
