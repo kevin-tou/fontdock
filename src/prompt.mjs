@@ -3,7 +3,7 @@ import { stylesheetUrls } from "./snippets.mjs";
 export function buildApplyPrompt(pair) {
   const lines = [
     "Apply these typefaces to the current project.",
-    "Inspect the stack (Next.js, Astro, Vite, HTML, Tailwind v3/v4) and write idiomatic integration:",
+    "You inspect the stack yourself (Next.js, Astro, Vite, Pug, HTML, Tailwind v3/v4). Do not run `npx fontdock detect`. Write idiomatic integration:",
     "- Google Fonts on Next.js → next/font/google when nextFont is set",
     "- Fontshare / Fontsource → <link> or CSS @import (never a fake next/font import)",
     "- Map headings (h1-h6, .font-display) to Display, body copy to Body, nav/buttons/.font-ui to UI if present",

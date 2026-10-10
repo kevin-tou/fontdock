@@ -1,124 +1,90 @@
 ---
 name: fontdock
-description: Audits the current project, detects stack and visual identity (DA), recommends curated type pairings from fontdock, previews them with a live toolbar, then writes stack-native font integration from an apply prompt. Use when the user runs /fontdock, asks to pair fonts, pick typefaces, set typography, or define the project's artistic direction.
+description: Audits a project's stack and visual identity, recommends two type pairings, then waits. The user picks pairing 1, pairing 2, or the live preview bar. Use when the user runs /fontdock, asks to pair fonts, pick typefaces, set typography, or define the artistic direction.
 ---
 
 # fontdock — `/fontdock`
 
-Reply in the user's language. Never invent fonts: only use combos from the registry.
+You are the auditor. **Read the repo yourself.** Do not run `npx fontdock detect`. Reply in the user's language. Never invent fonts: only use the registry. **Do not inject the toolbar and do not write CSS until the user picks 1, 2, or 3.**
 
-Registry, in order of preference:
+Registry, in order:
 
-1. `public/__fontdock/combos.json` or `.fontdock/combos.json` in the current project
-2. the `fontdock` package (`npx fontdock list`)
-3. this skill's sibling knowledge in [snippets.md](snippets.md)
-
-If `npx fontdock` is available, prefer CLI commands over hand-rolled file edits.
+1. `.fontdock/combos.json` in the current project
+2. `npx fontdock list` / `npx fontdock list --fonts`
+3. [snippets.md](snippets.md)
 
 ## Workflow
 
 ```
-fontdock
-- [ ] 1. Audit (stack, CSS, DA)
-- [ ] 2. Recommend 2 combos + ask
-- [ ] 3. Live toolbar, or apply from a prompt
-- [ ] 4. Write fonts idiomatically, then uninstall scaffolding
+/fontdock
+- [ ] 1. Audit stack, CSS, DA — no file edits
+- [ ] 2. Show 3 choices, then STOP
+- [ ] 3. User replies 1 / 2 / 3
+- [ ] 4. Act, then wait if they chose the bar
 ```
 
-## 1. Automatic audit
+## 1. Audit (no edits)
 
-Inspect `package.json`, `tailwind.config.*`, CSS with `@theme` / `@tailwind` / `:root`, the homepage, and README.
+Open `package.json`, configs, CSS, the real homepage / layout (Pug, Astro, `app/layout`, HTML). Treat `dist/` as build output only. Skip `node_modules`.
 
-Determine:
+Determine, stack-aware:
 
-- **Stack**: Next.js App Router, Next.js Pages, Astro, Vite (React/Vue), Nuxt, SvelteKit, Remix, or plain HTML
-- **CSS**: Tailwind v4 (`@theme` or `tailwindcss@4`), Tailwind v3 (`tailwind.config`), or native CSS variables
-- **DA / mood**: SaaS tech, creative studio, warm editorial, neo-brutalist, artisanal, contemporary indie
+- **Stack** — Next App/Pages, Astro, Vite, Nuxt, SvelteKit, Remix, Pug+static `dist`, or plain HTML
+- **CSS** — Tailwind v4 / v3, Bootstrap, SCSS, CSS variables
+- **DA** — SaaS, studio, editorial, brutalist, artisanal, indie — from copy, palette, current type, layout
 
-Preferred:
+If the DA is unclear, default combos: `saas-modern-tech` then `creative-studio-agency`.
 
-```bash
-npx fontdock detect --json
-```
+## 2. Three choices, then wait
 
-If the CLI is not installed, do the same inspection by reading files. Do not walk `node_modules`.
-
-## 2. Recommend and ask
-
-Print a short report, then stop and wait:
+Print this, then **stop**. Do not inject. Do not write fonts.
 
 ```markdown
 **Stack & CSS:** {stack} + {css}
-**DA:** {mood label} ({confidence})
+**DA:** {mood} ({confidence})
 **Evidence:** {2–5 signals}
 
-**Option 1 — {combo.name}**
-{Display} + {Body}
+**1 — {combo.name}**
+{Display} {weight} + {Body} {weight}
 {rationale}
 
-**Option 2 — {combo.name}**
-{Display} + {Body}
+**2 — {combo.name}**
+{Display} {weight} + {Body} {weight}
 {rationale}
 
-Souhaitez-vous :
-1. Appliquer définitivement l'Option 1 ou 2 (je l'écris dans le projet) ?
-2. Lancer la **barre flottante** sur le site en local pour tester en direct ?
+**3 — Barre live**
+Je pose la barre flottante sur le site. Tu mixes en local, tu fais Done, tu colles le prompt.
+
+Réponds **1**, **2** ou **3**.
 ```
 
-If the user writes in English, translate that question. Recommend the top two combos from detect scores; if scores are tied or empty, default to `saas-modern-tech` then `creative-studio-agency`.
+## 3. After they reply
 
-Do not edit files in this phase.
+### 1 or 2 — apply now
 
-## 3. Apply the choice
+Write idiomatic fonts for this stack (`next/font/google` only when `nextFont` is set; Fontshare / Fontsource stay on `<link>` or `@import`). Headings → Display, body → Body, nav/buttons → UI if present. Then `npx fontdock uninstall` if preview files exist. Done.
 
-`npx fontdock apply` does **not** write CSS. It prints a prompt. You (the agent) apply that prompt.
+### 3 — bar, then wait for the next prompt
 
-### Permanent option 1 or 2
+Do **not** rely on `npx fontdock inject`. You:
 
-1. Run `npx fontdock apply {id}` (or `--display` / `--body` / `--ui`) and follow the printed prompt.
-2. Inspect the stack yourself. Write idiomatic integration (`next/font/google` only when `nextFont` is set; Fontshare / Fontsource stay on `<link>` or `@import`).
-3. Map headings to Display, body copy to Body, nav/buttons to UI if present.
-4. **Uninstall immediately** (see §4).
+1. Copy `.fontdock/fontdock-toolbar.js` and `.fontdock/combos.json` to the folder the **dev server actually serves** (`public/__fontdock`, `src/assets/__fontdock` if the build copies into `dist/assets`, …).
+2. Add a module `<script>` to the **source** layout so rebuilds keep it. `src` must match the URL the browser will request.
+3. Tell them to start / refresh the **dev** server, mix, hit **Done**.
 
-Optional CSS dump if you want a starting snippet:
+Then **stop**. Do not apply fonts yet. The next user message is the Done prompt — write fonts from that, then uninstall.
 
-```bash
-npx fontdock snippet {combo-id}
-```
+The bar: Display / Body / UI chips, Presets, shuffle, **Done**, `Ctrl+Shift+F`. Keep it behind `development` / `import.meta.env.DEV` when the layout supports it.
 
-### Live toolbar
-
-```bash
-npx fontdock inject
-```
-
-Then tell the user to refresh the **dev** server. The toolbar is a white rounded pill (`<fontdock-toolbar>`):
-
-- **Display**, **Body**, and optional **UI** chips (family + weight)
-- curated **Presets**, shuffle, **Done**, collapse, `Ctrl+Shift+F`
-
-**Done copies an apply prompt** to the clipboard. When the user pastes it (or tells you the families), follow it: write fonts, then `npx fontdock uninstall`.
-
-## 4. Clean uninstall (mandatory when finished)
-
-Never leave fontdock preview files in the consumer repo. After fonts are written:
+## 4. Uninstall
 
 ```bash
 npx fontdock uninstall
 ```
 
-Removes:
+Keep the CSS you wrote. If the CLI is missing, delete the script + `__fontdock` / `.fontdock` + `.cursor/skills/fontdock`.
 
-- toolbar `<script>` from layouts
-- `public/__fontdock/` or `.fontdock/`
-- `.cursor/skills/fontdock` and `.cursor/rules/fontdock.mdc`
-
-Keeps the CSS / `next/font` integration you just wrote.
-
-Do not uninstall if the user is still previewing.
-
-## 5. Guardrails
+## Guardrails
 
 - Commercial-open licenses only (Fontshare ITF, Google Fonts OFL, Open Foundry OFL).
 - Never pair two display faces from outside the registry.
-- Toolbar script stays behind `development` / `import.meta.env.DEV` when the layout supports it.

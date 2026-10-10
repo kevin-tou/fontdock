@@ -12,25 +12,26 @@ const HELP = `
 fontdock — curated type pairings, live preview, Cursor /fontdock
 
 Usage:
-  npx fontdock init [options]
-  npx fontdock detect [--json]
+  npx fontdock init              copy the /fontdock skill, then type /fontdock
   npx fontdock list [--fonts]
-  npx fontdock inject
-  npx fontdock apply <combo-id>          print an AI apply prompt
+  npx fontdock apply <combo-id>  print an AI apply prompt (does not write CSS)
   npx fontdock apply --display <slug> --body <slug> [--ui <slug>]
   npx fontdock uninstall
-  npx fontdock eject
   npx fontdock snippet <combo-id>
-  npx fontdock snippet --display <slug> --body <slug>
   npx fontdock validate [--cdn]
+
+The agent (not this CLI) inspects stack and DA. Optional:
+  npx fontdock inject            best-effort toolbar inject
+  npx fontdock eject
+  npx fontdock detect [--json]   optional machine report
 
 Options:
   --dir <path>     Project root (default: cwd)
-  --inject         init: also inject the toolbar script into the layout
+  --inject         init: also try to inject the toolbar
   --no-cursor      init: skip Cursor rule/skill
   --no-toolbar     init: skip copying toolbar assets
   --keep-cursor    uninstall: leave the /fontdock skill in .cursor/
-  --keep-preview   uninstall: leave toolbar files in public/__fontdock
+  --keep-preview   uninstall: leave toolbar files
   --display <id>   apply/snippet: display family slug
   --body <id>      apply/snippet: body family slug
   --ui <id>        apply/snippet: optional UI family slug
@@ -83,7 +84,7 @@ export async function run(argv = process.argv.slice(2)) {
           return 1;
         }
         console.log(result.skipped ? `Already injected in ${result.file}` : `Injected toolbar in ${result.file}`);
-        console.log("Start the dev server, then type /fontdock.");
+        console.log("Start the dev server. Prefer /fontdock in Cursor if the bar does not show — the agent will place it.");
         return 0;
       }
       case "eject": {

@@ -1,6 +1,6 @@
 # fontdock
 
-**Audit a codebase, preview curated type pairings live, then hand the choice to Cursor as a prompt.**
+**Install a Cursor skill, preview type pairings live, then let the agent write them into your stack.**
 
 [![npm](https://img.shields.io/npm/v/fontdock)](https://www.npmjs.com/package/fontdock)
 [![license](https://img.shields.io/npm/l/fontdock)](./LICENSE)
@@ -10,13 +10,13 @@
 npx fontdock@latest init
 ```
 
-Then type **`/fontdock`** in Cursor.
+Then type **`/fontdock`** in Cursor. The agent audits the repo, then you pick **1**, **2** (a pairing, applied now) or **3** (live bar on your site — mix, Done, paste the next prompt). No `detect` script, no bar until you choose 3.
 
 ## What you get
 
-1. **A Cursor skill (`/fontdock`)** that inspects the repo (Next.js, Astro, Vite, HTML, Tailwind v3/v4), infers the artistic direction, and proposes two pairings.
-2. **A live toolbar** (`<fontdock-toolbar>`) — white, black, rounded pill. Mix **Display**, **Body**, and optional **UI** independently. No rebuild.
-3. **Done copies an apply prompt** (families, weights, CDN links). Paste it in Cursor: the agent writes stack-native CSS, then `npx fontdock uninstall` removes the preview.
+1. **A Cursor skill (`/fontdock`)** — stack-aware audit, then three choices.
+2. **A live toolbar** (choice 3) — Display / Body / optional UI. **Done** copies the next prompt.
+3. **Clean uninstall** — `npx fontdock uninstall` removes the preview. Fonts you wrote stay.
 
 ## Quick start
 
@@ -25,26 +25,24 @@ npx fontdock@latest init
 ```
 
 ```text
-Ready. Type /fontdock in Cursor Composer / Chat to start.
+Type /fontdock in Cursor, or paste:
+
+  Analyse ce repo (stack-aware) : stack, CSS, direction artistique.
+  Propose deux paires + la barre live (choix 1 / 2 / 3), puis attends.
 ```
 
 ```bash
-npx fontdock detect
-npx fontdock inject              # floating bar on the local site
-npx fontdock apply <combo-id>    # print the AI prompt (does not write CSS)
-npx fontdock apply --display fraunces --body inter --ui public-sans
-npx fontdock uninstall
 npx fontdock list --fonts
+npx fontdock apply <combo-id>    # print the AI prompt (does not write CSS)
+npx fontdock uninstall
 ```
 
 ## `/fontdock` flow
 
-1. **Audit** — framework, CSS, mood.
-2. **Dialogue** — two combos; commit via prompt or live toolbar.
-3. **Apply** — agent writes idiomatic fonts from the prompt.
-4. **Uninstall** — preview files gone; the fonts you wrote stay.
-
-Toolbar: tap Display / Body / UI chips to pick a face **and weight**, Presets panel, shuffle, **Done** (copies the prompt), `Ctrl+Shift+F`. The format menu still copies a CSS snippet if you need one.
+1. **Audit** — the agent reads the repo. No file edits yet.
+2. **Three choices** — pairing 1, pairing 2, or the live bar. Then it waits.
+3. **1 / 2** — fonts written now. **3** — bar on the real layout, wait for Done, apply on the next prompt.
+4. **Uninstall** — preview files gone.
 
 ## Registry
 

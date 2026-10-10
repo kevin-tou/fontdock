@@ -4,7 +4,7 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import test from "node:test";
 import { applyCombo, applyPair } from "../src/apply.mjs";
-import { initProject } from "../src/init.mjs";
+import { formatInit, initProject } from "../src/init.mjs";
 import { uninstallProject } from "../src/uninstall.mjs";
 
 function fixture() {
@@ -18,11 +18,13 @@ function fixture() {
 
 test("init copies Cursor skill, rule, and toolbar assets", async () => {
   const root = fixture();
-  const { created } = await initProject(root, {});
-  ok(created.some((file) => file.replaceAll("\\", "/").endsWith(".cursor/skills/fontdock/SKILL.md")));
+  const result = await initProject(root, {});
+  ok(result.created.some((file) => file.replaceAll("\\", "/").endsWith(".cursor/skills/fontdock/SKILL.md")));
   ok(existsSync(join(root, ".cursor", "rules", "fontdock.mdc")));
   ok(existsSync(join(root, ".fontdock", "fontdock-toolbar.js")));
   ok(existsSync(join(root, ".fontdock", "combos.json")));
+  match(formatInit(result), /Type \/fontdock/);
+  match(formatInit(result), /choix 1 \/ 2 \/ 3/);
 });
 
 test("apply prints an AI prompt instead of writing CSS", async () => {
@@ -30,6 +32,7 @@ test("apply prints an AI prompt instead of writing CSS", async () => {
   const result = await applyCombo(root, "saas-modern-tech");
   ok(result.ok);
   match(result.prompt, /Apply these typefaces/);
+  match(result.prompt, /Do not run `npx fontdock detect`/);
   match(result.prompt, /Cabinet Grotesk/);
   match(result.prompt, /Satoshi/);
   match(result.prompt, /npx fontdock uninstall/);

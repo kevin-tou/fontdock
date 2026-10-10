@@ -1,11 +1,9 @@
 import { copyFileSync, existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join, relative } from "node:path";
-import { detectProject, formatDetect } from "./detect.mjs";
 import { COMBOS_PATH, LEGACY_RULES_PATH, RULE_MDC_PATH, SKILL_DIR, TOOLBAR_FILE, TOOLBAR_PATH } from "./paths.mjs";
-import { injectToolbar } from "./inject.mjs";
+import { injectCommand } from "./inject.mjs";
 
 export async function initProject(root, flags = {}) {
-  const report = await detectProject(root);
   const created = [];
 
   if (!flags["no-cursor"]) {
@@ -31,19 +29,21 @@ export async function initProject(root, flags = {}) {
   }
 
   if (!flags["no-toolbar"]) {
-    mkdirSync(report.staging.dir, { recursive: true });
-    copyFileSync(TOOLBAR_PATH, join(report.staging.dir, TOOLBAR_FILE));
-    copyFileSync(COMBOS_PATH, join(report.staging.dir, "combos.json"));
-    created.push(relative(root, join(report.staging.dir, TOOLBAR_FILE)));
-    created.push(relative(root, join(report.staging.dir, "combos.json")));
+    const dir = join(root, ".fontdock");
+    mkdirSync(dir, { recursive: true });
+    copyFileSync(TOOLBAR_PATH, join(dir, TOOLBAR_FILE));
+    copyFileSync(COMBOS_PATH, join(dir, "combos.json"));
+    created.push(relative(root, join(dir, TOOLBAR_FILE)));
+    created.push(relative(root, join(dir, "combos.json")));
   }
 
   let injected = null;
   if (flags.inject) {
-    injected = injectToolbar(root, report);
+    const { result } = await injectCommand(root);
+    injected = result;
   }
 
-  return { report, created, injected };
+  return { created, injected };
 }
 
 function appendLegacyPointer(path) {
@@ -56,18 +56,21 @@ function appendLegacyPointer(path) {
   );
 }
 
-export function formatInit({ report, created, injected }) {
+export function formatInit({ created, injected }) {
   const lines = [
-    formatDetect(report),
-    "",
     "Installed",
     ...created.map((file) => `  + ${file}`),
   ];
-  if (injected?.file) {
+  if (injected?.ok && injected.file) {
     lines.push("", `Toolbar injected in ${injected.file}`);
-  } else if (report.staging.localOnly) {
-    lines.push("", "No public/ folder detected. Toolbar files live in .fontdock/ — copy them to your static directory before previewing.");
   }
-  lines.push("", "Ready. Type /fontdock in Cursor Composer / Chat to start.");
+  lines.push(
+    "",
+    "Type /fontdock in Cursor, or paste:",
+    "",
+    "  Analyse ce repo (stack-aware) : stack, CSS, direction artistique.",
+    "  Propose deux paires du registry fontdock + la barre live (choix 1 / 2 / 3), puis attends.",
+    "  Suit .cursor/skills/fontdock/SKILL.md",
+  );
   return lines.join("\n");
 }
